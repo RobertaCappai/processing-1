@@ -14,14 +14,14 @@
             
             // Example
             void setup() {
-              size(2, 150);
-              background(25);
+              size(2, 15);
+              background(25, 150, 58);
             }
             void draw(){
                 pushMatrix();
                 translate(10, 10);
                 rotate(radians(frameCount * 2  % 360));
-                rect(0, 0, 60, 8);
+                rect(0, 58, 60, 8);
                 popMatrix();
             }
             
