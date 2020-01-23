@@ -7,167 +7,27 @@
         <script src="vendors/processing.min.js"></script>
     </head>
     <body>
-        <h1>Turing Machine - Processing project by Roberta Cappai</h1>
+        <h1>Processing project by Roberta Cappaii</h1>
         <script type="text/processing">
-
-PImage img;
-
-int movimento=5; //movimento freccia(destra-sinistra) e ingranaggi(orario-antiorario)
-int angolo=0; //rotazione ingranaggi
-int ascissaF=350; //ascissa della freccia
-
-
-void setup() {
-  /*finestra*/
-  size(900, 729);
-  background(165, 210, 200);
-}
-
-void draw () {
-    
-  /*sfondo senza immagine*
-  ps. questo secondo sfondo oltre all'immagine
-  è stata giunta solo nel caso github non riesca a 
-  a caricare l'immagine*/
-  fill(165, 210, 200);
-  stroke(165, 210, 200);
-  strokeWeight(0);
-  rect(0,0,900,729); 
+void setup()
+{
+  size(58,150);
+  background(105);
   
-  /*sfondo*/
-  img = loadImage("https://i.pinimg.com/originals/d9/ac/fc/d9acfc0e6006a599f8d19b63dbe0a90d.jpg");
-  image(img,0,0);
+  stroke(25);
+  rect(40, 44, 44, 45);
   
-  //sfondo titolo
-  fill(255);
-  strokeWeight(3);
   stroke(0);
-  rect(200,60,480,100);
-    
-  nastro(330, 250);//Memoria Esterna
-  
-  //Freccia, Testa leggi,scrivi,leggi
   pushMatrix();
-  translate(ascissaF,285);
-  freccia(0,0);
+  translate(20,20);
+  scale(0.5);
+  rotate(radians(85));
+  rect(0, 47, 40, 65);
   popMatrix();
-
-  strokeWeight(20);
-  stroke(255, 50, 100);
-  line(168, 630, 350, 630);//Testa leggi,scrivi
-
-  fill(20, 170, 85);
-  strokeWeight(0);
-  stroke(20, 170, 85);
-  rect(320, 450, 500, 200);//Unità di Controllo
-  rect(150, 575, 75, 75);//Memoria interna
-  fill(255);
-  strokeWeight(0);
-  stroke(255);
-  rect(400,500,340,100);//quadrato bianco quintupla
-  rect(160,585,55,55);//quadrato bianco stato interno
-  
-  
-  pushMatrix();
-  translate(800,470);
-  ingranaggio(0,0,angolo);//grande
-  popMatrix();
- 
-  pushMatrix();
-  scale(0.7);
-  translate(1120, 760);
-  ingranaggio(0,0,-angolo);//piccolo
-  popMatrix();
-  
-  /*quintupla generica*/
-  textSize(35);
-  text("qi, aj : ak, M, qm", 440, 565);
-  
-  /*stato interno generico*/
-  textSize(35);
-  text("qi", 170, 625);
-  
-  /*titolo*/
-  textSize(60);
-  text("Turing machine", 235, 130);
-  
-    
-  //cambia la direzione della freccia e il senso di rotazione degli ingranaggi
-  if(ascissaF==340)
-  {
-   movimento=-movimento;
-  }
-  
-  if (ascissaF==790)
-  {
-    movimento=-movimento;
-  }
-  
-  ascissaF=ascissaF+movimento;//muove la freccia
-  
-  angolo=angolo+movimento;//muove gli ingranaggi
-  
 }
 
-void ingranaggio (int x, int y, int a) {
-  //x,y ascissa e ordinata funzione ingranaggio
-  //a angolo rotazione funzione ingranaggio
-  
-  int c=60; //granndezza cerchi
-  
-  pushMatrix();
-  scale(0.7);
-  translate(0, 0);
-  rotate(radians(a));
-  stroke(125);
-  strokeWeight(20);
-  line(x, y-45, x, y+45);//linea verticale
-  line(x-45, y, x+45, y);//linea orizontale
-  line(x-35, y-35, x+35, y+35);//linea obliqua da sinistra a destra
-  line(x+35, y-35, x-35, y+35);//linea obliqua da destra a sinistra
 
-  /*cerchi concentrici*/
-  fill(165, 210, 200);    
-  stroke(125);
-  strokeWeight(10);
-  ellipse(x, y, c, c);//cerchio grande 
-  fill(0); 
-  stroke(0); 
-  strokeWeight(1);
-  ellipse(x, y, c/2, c/2);//cerchio piccolo
-  
-  popMatrix();
 
-}
-
-void freccia (int z, int w) {
-  //z,w ascissa e ordinata della funzione freccia
-  
-  /*punta*/
-  fill(255, 50, 100);
-  stroke(255, 50, 100);
-  strokeWeight(0);
-  triangle(z, w, z-30, w+40, z+30, w+40);
-
-  /*corpo*/
-  stroke(255, 50, 100);
-  strokeWeight(20);
-  line(z, w+20, z, w+200);
-}
-
-void nastro (int v, int t) {
-  //v,t ascissa e ordinata della funzione nastro
-  
-  //disegna i quadrati del nastro
-  for (int i=v; i<v+480; i=i+40)
-  {
-    fill(250);
-    stroke(0);
-    strokeWeight(3);
-    rect(i, t, 40, 40);
-  }
-}
-            
         </script>
         <canvas></canvas>
     </body>
