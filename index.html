@@ -1,31 +1,22 @@
+voidsetup(){
+size ( 300, 350);
+background (80, 0, 22);
+smooth();
+noStroke();
+}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Roberta Cappai - Processign Project</title>
-        <script src="vendors/processing.min.js"></script>
-    </head>
-    <body>
-        <h1>Processing project by Roberta Cappai</h1>
-        <script type="text/processing">
+voiddraw(){
+if(frameCount % 10 ==0){
+fill (frameCount * 4 % 255, frameCount * 6 % 255, frameCount * 8 % 245);
+pushMatrix();
+translate (100, 155);
+rotate(radians(frameCount * 0.5 % 360));
+ellipse(0, 0, 80, 20);
+fill(0);
+rect(50, 0, 80, 5);
+popMatrix();
+}
 
-            // Write your project here
-            
-            // Example
-            void setup() {
-              size(300, 350);
-              background(150);
-            }
-            void draw(){
-                pushMatrix();
-                translate(20, 80);
-                rotate(radians(frameCount * 2  % 360));
-                rect(0, 0, 180, 4);
-                popMatrix();
-            }
-            
-        </script>
-        <canvas></canvas>
-    </body>
-</html>
+
+
+}
