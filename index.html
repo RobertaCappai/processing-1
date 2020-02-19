@@ -9,31 +9,28 @@
     <body>
         <h1>Processing project by Roberta </h1>
         <script type="text/processing">
-void setup(){
-size ( 300, 350);
-background (140, 4, 30);
-smooth();
-noStroke();
-}
-
-void draw (){
-if(frameCount % 8 ==0){
-  fill (frameCount * 6 % 230, frameCount * 6 % 230, frameCount * 8 % 230);
-  pushMatrix();
-  translate (150, 150);
-  rotate(radians(frameCount * 0.5 % 360));
-  ellipse(0, 0, 100, 10);
-  fill(10);
-  rect(60, 0, 40, 2);
-  popMatrix();
-}
-
-
-
-}
-
-
         </script>
+        void setup() {
+  size(500, 500);
+  background(40, 4);
+  smooth();
+  noStroke();
+}
+
+void draw(){
+  if (frameCount % 2 == 1) {
+    fill(frameCount * 5 % 20, frameCount * 5 % 20,
+      frameCount * 4 % 25);
+    pushMatrix();
+    scale(2.0);
+    translate(125, 125);
+    rotate(radians(frameCount * 4  % 360));
+    rect(5, 5, 100, 40);
+    popMatrix();
+  }
+}
+            
+
         <canvas></canvas>
     </body>
 </html>
