@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,10 +6,10 @@
         <script src="vendors/processing.min.js"></script>
     </head>
     <body>
-        <h1>Processing project by Roberta Cappai</h1>
+        <h1>Processing project by Roberta</h1>
         <script type="text/processing">
-         </script>
-        void setup() {
+
+           void setup() {
   size(500, 500);
   background(40, 4);
   smooth();
@@ -19,7 +18,7 @@
 
 void draw(){
   if (frameCount % 2 == 1) {
-    fill(frameCount * 5 % 20, frameCount * 5 % 20,
+    fill(frameCount * 5 % 150, frameCount * 8 % 150,
       frameCount * 4 % 25);
     pushMatrix();
     scale(2.0);
@@ -30,6 +29,7 @@ void draw(){
   }
 }
             
+        </script>
         <canvas></canvas>
     </body>
 </html>
